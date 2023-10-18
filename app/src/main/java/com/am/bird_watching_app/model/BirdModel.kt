@@ -8,5 +8,3 @@ data class BirdItem(
     val pictureUrl: String,
     val description: String
 ): Serializable
-
-

@@ -16,7 +16,7 @@ class BirdList : AppCompatActivity() {
         val recyclerView = findViewById<RecyclerView>(R.id.birds_recyclerview) // Replace with your RecyclerView ID
 
         // Initialize the adapter and set it to the RecyclerView
-        val adapter = BirdListAdapter { birdItem ->
+        val adapter = BirdListAdapter(this) { birdItem ->
             // Handle item click here
             val intent = Intent(this, BirdDetail::class.java)
             intent.putExtra("selected_bird", birdItem)
