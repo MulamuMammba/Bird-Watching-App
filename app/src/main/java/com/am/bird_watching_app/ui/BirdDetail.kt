@@ -24,8 +24,8 @@ class BirdDetail : AppCompatActivity() {
         val birdImage = findViewById<ImageView>(R.id.bird_image_detail)
 
         birdName.text = selectedBird.name
-        birdDescription.text = selectedBird.description
-        birdImage.setImageDrawable(getDrawable(R.drawable.ic_launcher_background))
+        birdDescription.text = selectedBird.location
+        birdImage.setImageDrawable(getDrawable(R.drawable.ic_android_black_24dp))
 
         val ButtonMap= findViewById<TextView>(R.id.view_on_map)
         ButtonMap.setOnClickListener{

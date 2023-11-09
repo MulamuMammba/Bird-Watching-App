@@ -6,5 +6,7 @@ data class BirdItem(
     val location: String,
     val name: String,
     val pictureUrl: String,
-    val description: String
+    val description: String,
+    val latitude: String,
+    val longitude : String
 ): Serializable
