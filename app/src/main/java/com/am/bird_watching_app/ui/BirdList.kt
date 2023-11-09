@@ -1,8 +1,8 @@
 package com.am.bird_watching_app.ui
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.am.bird_watching_app.R
@@ -13,9 +13,9 @@ class BirdList : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bird_list)
 
-        val recyclerView = findViewById<RecyclerView>(R.id.birds_recyclerview) // Replace with your RecyclerView ID
+        val recyclerView = findViewById<RecyclerView>(R.id.birds_recyclerview)
 
-        // Initialize the adapter and set it to the RecyclerView
+
         val adapter = BirdListAdapter(this) { birdItem ->
             // Handle item click here
             val intent = Intent(this, BirdDetail::class.java)

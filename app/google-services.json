@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "922259948477",
+    "project_id": "bird-warching123",
+    "storage_bucket": "bird-warching123.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:922259948477:android:689a9d0296a2bcfdde08d4",
+        "android_client_info": {
+          "package_name": "com.am.bird_watching_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRzWGEE0duVHltRe0kGPYvYPvyvGgGGLw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

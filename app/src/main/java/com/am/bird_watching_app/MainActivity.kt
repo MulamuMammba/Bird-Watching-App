@@ -3,9 +3,9 @@ package com.am.bird_watching_app
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.am.bird_watching_app.ui.LogIn
+import androidx.appcompat.app.AppCompatActivity
+import com.am.bird_watching_app.auth.Login
 import com.am.bird_watching_app.ui.onBoarding.Slide1
 
 class MainActivity : AppCompatActivity() {
@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
             myEdit.apply()
             finish()
         }else{
-            startActivity(Intent(this,LogIn::class.java))
+            startActivity(Intent(this,Login::class.java))
         }
 
     }
