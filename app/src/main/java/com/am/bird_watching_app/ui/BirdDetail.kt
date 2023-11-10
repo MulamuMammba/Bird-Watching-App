@@ -27,12 +27,13 @@ class BirdDetail : AppCompatActivity() {
         birdDescription.text = selectedBird.location
         birdImage.setImageDrawable(getDrawable(R.drawable.ic_android_black_24dp))
 
-        val ButtonMap= findViewById<TextView>(R.id.view_on_map)
-        ButtonMap.setOnClickListener{
-            startActivity(Intent(this, MapsActivity::class.java))
+        val buttonMap= findViewById<TextView>(R.id.view_on_map)
+        buttonMap.setOnClickListener{
+            val intent = Intent(this, MapPage::class.java)
+            intent.putExtra("selected_bird", selectedBird)
+            startActivity(intent)
         }
         if (!selectedBird.pictureUrl.isNullOrEmpty()) {
-            // Load and display the image using the provided URL
             Glide.with(this)
                 .load(selectedBird.pictureUrl)
                 .apply(RequestOptions().transform(CenterCrop(), RoundedCorners(29)))

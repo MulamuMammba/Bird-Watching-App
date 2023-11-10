@@ -40,7 +40,7 @@ class Homepage : AppCompatActivity() {
                     startActivity(Intent(this, BirdList::class.java))
                 }
                 2 -> {
-                     startActivity(Intent(this, BirdList::class.java))
+                     startActivity(Intent(this, Hotspots::class.java))
                 }
                 3 -> {
                     startActivity(Intent(this, BirdList::class.java))

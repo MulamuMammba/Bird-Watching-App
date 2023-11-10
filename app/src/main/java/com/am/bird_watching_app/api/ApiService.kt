@@ -2,6 +2,7 @@ package com.am.bird_watching_app.api
 
 import com.am.bird_watching_app.model.APIKey
 import com.am.bird_watching_app.model.BirdItem
+import com.am.bird_watching_app.model.Hotspots
 import org.json.JSONArray
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -62,4 +63,48 @@ class ApiService {
 
         return birdItems
     }
+
+    suspend fun fetchHotspots(latitude: Double, longitude: Double): List<Hotspots> {
+
+        val eBirdApiUrl = "https://api.ebird.org/v2/ref/hotspot/geo?lat=$latitude&lng=$longitude"
+
+        val hotspotsList = mutableListOf<Hotspots>()
+
+        try {
+            val url = URL(eBirdApiUrl)
+            val connection = url.openConnection() as HttpURLConnection
+            connection.setRequestProperty("X-eBirdApiToken", api_KEY)
+
+            if(connection.responseCode != 404) {
+                val inputStream = connection.inputStream
+                val reader = BufferedReader(InputStreamReader(inputStream))
+                val response = StringBuilder()
+                var line: String?
+
+                while (reader.readLine().also { line = it } != null) {
+                    response.append(line)
+                }
+
+                val jsonArray = JSONArray(response.toString())
+
+                for (i in 0 until jsonArray.length()) {
+                    val jsonBird = jsonArray.getJSONObject(i)
+                    val name = jsonBird.getString("comName")
+                    val latitude = jsonBird.getString("lat").toDouble()
+                    val longitude = jsonBird.getString("lng").toDouble()
+
+                    hotspotsList.add(Hotspots("name",latitude,longitude))
+                }
+            }else{
+                println("HTTP 404 - Resource not found.")
+            }
+
+        } catch (e: Exception) {
+            e.printStackTrace()
+            hotspotsList.add(Hotspots("location", 0.0, 0.0))
+        }
+
+        return hotspotsList
+    }
+
 }
