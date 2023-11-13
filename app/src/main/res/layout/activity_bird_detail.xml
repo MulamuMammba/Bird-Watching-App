@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.BirdDetail"
+    tools:context=".BirdDetail"
     android:background="@drawable/background">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -26,10 +26,10 @@
             android:id="@+id/bird_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="200dp"
-            android:textColor="#FFFFFF"
-            android:textSize="24sp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="184dp"
+            android:textColor="#000000"
+            android:textSize="48sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -56,6 +56,13 @@
         android:textAllCaps="false"
         android:textSize="16sp"
         android:textStyle="italic" />
+
+    <ImageButton
+        android:id="@+id/shareBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        app:srcCompat="@drawable/share" />
 
     <Space
         android:layout_width="match_parent"

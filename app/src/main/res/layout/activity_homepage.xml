@@ -8,7 +8,7 @@
     android:paddingHorizontal="10dp"
     android:paddingVertical="10dp"
     app:layoutDescription="@xml/activity_homepage_scene"
-    tools:context=".ui.Homepage"
+    tools:context=".Homepage"
     android:background="@drawable/background">
 
     <Space
@@ -56,7 +56,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/googleg_disabled_color_18" />
+            android:src="@drawable/settings" />
 
     </LinearLayout>
 

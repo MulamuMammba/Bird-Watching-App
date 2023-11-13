@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:padding="15dp"
     app:layoutDescription="@xml/map_page_scene"
-    tools:context=".ui.Hotspots">
+    tools:context=".Hotspots">
 
     <Space
         android:layout_width="match_parent"

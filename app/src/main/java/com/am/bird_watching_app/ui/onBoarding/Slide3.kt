@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.am.bird_watching_app.R
-import com.am.bird_watching_app.auth.Register
+import com.am.bird_watching_app.Register
 
 class Slide3 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

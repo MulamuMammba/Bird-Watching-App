@@ -5,7 +5,6 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.am.bird_watching_app.auth.Login
 import com.am.bird_watching_app.ui.onBoarding.Slide1
 
 class MainActivity : AppCompatActivity() {
@@ -22,7 +21,7 @@ class MainActivity : AppCompatActivity() {
             myEdit.apply()
             finish()
         }else{
-            startActivity(Intent(this,Login::class.java))
+            startActivity(Intent(this, Login::class.java))
         }
 
     }
