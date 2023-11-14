@@ -11,16 +11,17 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val sharedPreferences: SharedPreferences = getSharedPreferences("MySharedPref", Context.MODE_PRIVATE)
+        val sharedPreferences: SharedPreferences =
+            getSharedPreferences("MySharedPref", Context.MODE_PRIVATE)
         val firstTimeCheck = sharedPreferences.getString("firstTime?", "true")
 
-        if (firstTimeCheck=="true"){
+        if (firstTimeCheck == "true") {
             startActivity(Intent(this, Slide1::class.java))
             val myEdit = sharedPreferences.edit()
             myEdit.putString("firstTime?", "false")
             myEdit.apply()
             finish()
-        }else{
+        } else {
             startActivity(Intent(this, Login::class.java))
         }
 

@@ -19,11 +19,10 @@ class Notes : AppCompatActivity() {
     private lateinit var database: FirebaseDatabase
     private lateinit var auth: FirebaseAuth
 
-    private val noteEditText: EditText = findViewById(R.id.noteEditText)
-    private val saveNoteButton: Button = findViewById(R.id.saveNoteButton)
+    private lateinit var noteEditText: EditText
+    private lateinit var saveNoteButton: Button
     private lateinit var notesAdapter: NotesAdapter
     private lateinit var notesList: MutableList<Note>
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +30,9 @@ class Notes : AppCompatActivity() {
 
         database = FirebaseDatabase.getInstance()
         auth = FirebaseAuth.getInstance()
+
+        noteEditText = findViewById(R.id.noteEditText)
+        saveNoteButton = findViewById(R.id.saveNoteButton)
 
         val notesRecyclerView: RecyclerView = findViewById(R.id.notesRecyclerView)
         notesList = mutableListOf()

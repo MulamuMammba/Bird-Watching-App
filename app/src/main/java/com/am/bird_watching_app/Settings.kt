@@ -4,11 +4,18 @@ import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.*
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class Settings : AppCompatActivity() {
-    private lateinit var distanceMeasure: String
-    private lateinit var maxTravelDistance: String
+    private var distanceMeasure: String = "default"
+    private var maxTravelDistance: String = "default"
+
     private lateinit var userId: String
 
     private lateinit var database: FirebaseDatabase
@@ -38,11 +45,13 @@ class Settings : AppCompatActivity() {
         distanceUnit.setOnClickListener {
             updateDistanceMeasureSetting()
         }
+
     }
 
     private fun updateMaxTravelSetting() {
         lateinit var output: String
         when (maxTravelDistance) {
+            "default" -> output = "small"
             "small" -> output = "medium"
             "medium" -> output = "large"
             "large" -> output = "largest"
@@ -50,18 +59,23 @@ class Settings : AppCompatActivity() {
         }
 
         maxTravelDistance = output
-        updateSettingsInFirebase()
+        GlobalScope.launch(Dispatchers.IO) {
+            updateSettingsInFirebase()
+        }
     }
 
     private fun updateDistanceMeasureSetting() {
         lateinit var output: String
         when (distanceMeasure) {
+            "default" -> output = "km"
             "km" -> output = "miles"
             "miles" -> output = "km"
         }
 
         distanceMeasure = output
-        updateSettingsInFirebase()
+        GlobalScope.launch(Dispatchers.IO) {
+            updateSettingsInFirebase()
+        }
     }
 
     private fun updateSettingsInFirebase() {
@@ -96,5 +110,7 @@ class Settings : AppCompatActivity() {
 
         maxTravel.text = maxTravelDistance
         distanceUnit.text = distanceMeasure
+
     }
+
 }

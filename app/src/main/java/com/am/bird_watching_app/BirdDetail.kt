@@ -26,7 +26,8 @@ class BirdDetail : AppCompatActivity() {
         val shareButton = findViewById<ImageView>(R.id.shareBtn)
 
         birdName.text = selectedBird.name
-        birdDescription.text = selectedBird.location
+        birdDescription.text =
+            selectedBird.description + "\n\nBird Location: " + selectedBird.location
         birdImage.setImageDrawable(getDrawable(R.drawable.ic_android_black_24dp))
 
         val buttonMap = findViewById<TextView>(R.id.view_on_map)
@@ -45,11 +46,13 @@ class BirdDetail : AppCompatActivity() {
         }
         shareButton.setOnClickListener {
             shareText(
-                "Hey take a look at this bird!" +
-                        "\n" + selectedBird.name +
-                        "\n" + selectedBird.location +
-                        "I found it using Eagle Eye Bird Watchers App"
+                "🦜 Check out this amazing bird! 🕊️\n\n" +
+                        "Name: ${selectedBird.name}\n" +
+                        "Description: ${selectedBird.description}\n" +
+                        "Location: ${selectedBird.location}\n\n" +
+                        "Discovered using the Eagle Eye Bird Watchers App. 🦅🔍"
             )
+
         }
     }
 

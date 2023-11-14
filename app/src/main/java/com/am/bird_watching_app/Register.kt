@@ -44,7 +44,11 @@ class Register : AppCompatActivity() {
                 return@setOnClickListener
             }
             if (password != confirmPassword) {
-                Toast.makeText(this, "Password does not match with confirm password", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    "Password does not match with confirm password",
+                    Toast.LENGTH_SHORT
+                ).show()
                 return@setOnClickListener
             }
 

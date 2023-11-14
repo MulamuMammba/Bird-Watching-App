@@ -1,8 +1,8 @@
 package com.am.bird_watching_app
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import com.am.bird_watching_app.api.LocationApi
 import com.am.bird_watching_app.model.BirdItem
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -29,7 +29,8 @@ class MapPage : AppCompatActivity() {
 
 
         mapView.getMapAsync { googleMap ->
-            val location = LatLng(selectedBird.latitude.toDouble(), selectedBird.longitude.toDouble())
+            val location =
+                LatLng(selectedBird.latitude.toDouble(), selectedBird.longitude.toDouble())
             val userLatLng = LatLng(userLocation!!.first, userLocation.second)
 
             googleMap.addMarker(MarkerOptions().position(location).title(selectedBird.name))

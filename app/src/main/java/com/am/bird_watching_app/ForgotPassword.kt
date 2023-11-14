@@ -16,19 +16,20 @@ class ForgotPassword : AppCompatActivity() {
 
 
         val emailEditText = findViewById<EditText>(R.id.resetEmail)
-        val button =findViewById<Button>(R.id.resetPassword_button)
+        val button = findViewById<Button>(R.id.resetPassword_button)
 
-        button.setOnClickListener{
+        button.setOnClickListener {
             val email = emailEditText.text.toString().trim()
-            if(email.isNotEmpty()){
+            if (email.isNotEmpty()) {
                 sendEmail(email)
-            }else{
+            } else {
                 Toast.makeText(this, "Enter email", Toast.LENGTH_SHORT).show()
             }
         }
 
     }
-    private fun sendEmail(email : String){
+
+    private fun sendEmail(email: String) {
 
         auth.sendPasswordResetEmail(email)
             .addOnCompleteListener { task ->
@@ -41,7 +42,8 @@ class ForgotPassword : AppCompatActivity() {
                     finish()
                 } else {
                     // Password reset email send failed
-                    Toast.makeText(this, "Failed to send password reset email", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Failed to send password reset email", Toast.LENGTH_SHORT)
+                        .show()
                 }
             }
 

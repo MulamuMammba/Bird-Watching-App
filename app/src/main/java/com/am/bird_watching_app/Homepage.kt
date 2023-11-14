@@ -5,8 +5,8 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.ListView
-import androidx.appcompat.app.AppCompatActivity
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
@@ -25,7 +25,8 @@ class Homepage : AppCompatActivity() {
 
         val menuList = findViewById<ListView>(R.id.menuList)
 
-        val menuItems = arrayOf("Search for a bird", "Load bird list", "Find bird hotspots", "Personal notes")
+        val menuItems =
+            arrayOf("Search for a bird", "Load bird list", "Find bird hotspots", "Personal notes")
 
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, menuItems)
         menuList.adapter = adapter
@@ -35,12 +36,15 @@ class Homepage : AppCompatActivity() {
                 0 -> {
                     startActivity(Intent(this, BirdList::class.java))
                 }
+
                 1 -> {
                     startActivity(Intent(this, BirdList::class.java))
                 }
+
                 2 -> {
-                     startActivity(Intent(this, Hotspots::class.java))
+                    startActivity(Intent(this, Hotspots::class.java))
                 }
+
                 3 -> {
                     startActivity(Intent(this, Notes::class.java))
                 }
